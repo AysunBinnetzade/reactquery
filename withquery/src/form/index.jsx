@@ -1,7 +1,8 @@
 import React from 'react'
 
-export const MainPage= () =>{
+export const MainPag= () =>{
     return(
-        
+     
+        <div>main</div>
     )
 }
