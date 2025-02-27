@@ -11,4 +11,5 @@ export const ROUTERS = {
         PATH:"/teachers",
         DETAIL:"/teachers/:id",
     },
+    
 }
