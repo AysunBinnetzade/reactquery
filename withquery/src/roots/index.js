@@ -7,6 +7,7 @@ import { Students } from '../components/Students';
 import { Teachers } from '../components/Teachers';
 // import { FormPage } from '../../form';
 // import { CreateNewStudent } from '../components/Forms/CreateNewStudent';
+import { CreateNewStudent } from '../components/Forms/CreateNewStudent';
 
 export const ROUTER = () =>{
     return ( 
@@ -14,6 +15,7 @@ export const ROUTER = () =>{
     <Route path={ROUTERS.PATH} element={<MainPage />} />
     <Route path={ROUTERS.STUDENTS.PATH} element={<Students />} />
     <Route path={ROUTERS.TEACHER.PATH} element={<Teachers />} />
+    <Route path={ROUTERS.CreateNewStudent} element={<CreateNewStudent/>} />
 
     <Route path={ROUTERS.FORM} element={<FormTwo/>} />
 

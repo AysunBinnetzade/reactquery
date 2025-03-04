@@ -1,7 +1,7 @@
-import React from 'react'
+// import React from 'react'
 
-export const MainPage = () =>{
-    return (
-        <div>SALAM</div>
-    )
-}
+// export const MainPage = () =>{
+//     return (
+//         <div>SALAM</div>
+//     )
+// }

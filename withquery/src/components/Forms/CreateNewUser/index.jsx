@@ -117,6 +117,30 @@
 // ?_______________________________
 
 
+// import React from "react";
+// import { useState } from "react";
+// import Button from "react-bootstrap/Button";
+// import Col from "react-bootstrap/Col";
+// import Form from "react-bootstrap/Form";
+// import InputGroup from "react-bootstrap/InputGroup";
+// import Row from "react-bootstrap/Row";
+// import { useQuery } from "@tanstack/react-query";
+
+// export const CreateNewUser = () => {
+//   const [validated, setValidated] = useState(false);
+
+//   const handleSubmit = (event) => {
+//     const form = event.currentTarget;
+//     if (form.checkValidity() === false) {
+//       event.preventDefault();
+//       event.stopPropagation();
+//     }
+
+//     setValidated(true);
+//   };
+
+// };
+
 import React from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
@@ -124,38 +148,57 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
-import { useQuery } from "@tanstack/react-query";
+import { Students } from "../../Students";
+// import { useQuery } from "@tanstack/react-query";
+
+const initialInfputValue =({
+    firstname: "",
+    lastname: "",
+    email: "",
+    point:""
+});
 
 export const CreateNewUser = () => {
-  const [validated, setValidated] = useState(false);
 
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+const [inputsValue, setInputsValue] = React.useState (initialInfputValue);
 
-    setValidated(true);
-  };
+const handleChangeInputValue = ({ tatrge: {value , name} })=> {
+    setInputsValue ({...inputsValue, [name]:value});
+};
+
+
 
   return (
-    <Form noValidate validated={validated} onSubmit={handleSubmit}>
+    <Form noValidate  >
       <Row className="mb-3">
         <Form.Group as={Col} md="4" controlId="validationCustom01">
           <Form.Label>First name</Form.Label>
-          <Form.Control required type="text" placeholder="First name" />
+          <Form.Control required 
+          type="text" 
+          name="firstname"
+          placeholder="First name" />
+                    onChange={handleChangeInputValue}
+
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col} md="4" controlId="validationCustom02">
           <Form.Label>Last name</Form.Label>
-          <Form.Control required type="text" placeholder="Last name" />
+          <Form.Control required 
+          type="text" 
+          name="lastname"
+          placeholder="Last name" />
+          onChange={handleChangeInputValue}
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group as={Col} md="4" controlId="validationCustom01">
           <Form.Label>Point</Form.Label>
-          <Form.Control required type="text" placeholder="Point" />
+          <Form.Control required 
+          type="text" 
+          name="point"
+          placeholder="Point" />
+                    onChange={handleChangeInputValue}
+
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
 
@@ -165,7 +208,10 @@ export const CreateNewUser = () => {
             <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
             <Form.Control
               type="text"
+              name="email"
               placeholder="Email"
+              onChange={handleChangeInputValue}
+
               aria-describedby="inputGroupPrepend"
               required
             />
@@ -176,7 +222,13 @@ export const CreateNewUser = () => {
         </Form.Group>
       </Row>
 
-      <Button type="submit">ADD</Button>
+      <Button onClick={()=>{
+        console.log("Input value", inputsValue);
+      }}>
+
+        ADD
+        </Button>
+        <Students inputsValue={inputsValue}/>
     </Form>
   );
 };

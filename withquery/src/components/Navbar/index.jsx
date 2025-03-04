@@ -14,7 +14,7 @@ function NavbarComponent() {
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
           {/* <Navbar.Brand href="#home">Navbar</Navbar.Brand> */}
-          <Link to={ROUTERS.PATH} className='me-4' >logo </Link>
+          {/* <Link to={ROUTERS.PATH} className='me-4' >logo </Link> */}
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -30,5 +30,4 @@ function NavbarComponent() {
     </>
   );
 }
-
 export default NavbarComponent;

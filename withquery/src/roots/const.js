@@ -8,8 +8,8 @@ export const ROUTERS = {
         DETAIL: "/students/:id",
     },
     TEACHER: {
-        PATH:"/teachers",
-        DETAIL:"/teachers/:id",
+        PATH:"/teacher",
+        DETAIL:"/teacher/:id",
     },
     
 }
